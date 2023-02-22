@@ -70,8 +70,8 @@ string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
     string answer = "";
-    for (int i = 0; i < wordList[index]; i++) {
-        answer = answer + tolower(wordList[index][i]);
+    for (int i = 0; i < (int)wordList[index].size(); i++) {
+        answer = answer + char(tolower(wordList[index][i]));
     }
     return answer;
 }
@@ -162,7 +162,7 @@ void processData(const char ch, const string& word,
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
     ***/
-    if (isCharInWord) {
+    if (isCharInWord(ch,word)) {
         updateSecretWord(secretWord, ch, word);
         updateEnteredChars(ch, correctChars);
     }
